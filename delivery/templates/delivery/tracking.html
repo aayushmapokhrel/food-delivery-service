@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Order Delivery Tracking</h2>
+
+<table border="1">
+    <tr>
+        <th>Order ID</th>
+        <th>Delivery Person</th>
+        <th>Status</th>
+        <th>Delivered At</th>
+    </tr>
+    {% for delivery in deliveries %}
+    <tr>
+        <td>{{ delivery.order.id }}</td>
+        <td>{{ delivery.delivery_person.user.username }}</td>
+        <td>{{ delivery.status }}</td>
+        <td>{{ delivery.delivered_at|default:"Not Delivered Yet" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

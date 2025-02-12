@@ -1,0 +1,25 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+
+<div style="display: flex; gap: 20px;">
+    <div style="padding: 20px; background: #f8f9fa;">
+        <h3>Total Users: {{ total_users }}</h3>
+    </div>
+    <div style="padding: 20px; background: #f8f9fa;">
+        <h3>Total Restaurants: {{ total_restaurants }}</h3>
+    </div>
+    <div style="padding: 20px; background: #f8f9fa;">
+        <h3>Total Orders: {{ total_orders }}</h3>
+    </div>
+</div>
+
+<h2>Order Status Summary</h2>
+<ul>
+    {% for status in order_statuses %}
+        <li>{{ status.status }}: {{ status.count }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
